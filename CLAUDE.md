@@ -65,7 +65,7 @@ frontend/← React 19 SPA
 ### Data layer — `wiki.py`
 
 Single source of truth for all filesystem I/O. Manages three directories:
-- `wiki/` — Markdown pages; exposes `read_page`, `write_page`, `list_pages`, `search_pages` as LLM tool functions (also exported as `TOOLS` schema + `DISPATCH` dict)
+- `wiki/` — Markdown pages; exposes `read_page`, `write_page`, `append_page`, `delete_page`, `list_pages`, `search_pages` as LLM tool functions (also exported as `TOOLS` schema + `DISPATCH` dict)
 - `cache/` — `read_cache(question)` / `write_cache(question, content)`; files named by sanitized question text
 - `raw/` — `save_raw(text, source)` appends timestamped source documents on every ingest
 
@@ -87,7 +87,8 @@ Query agent always starts by reading `index.md` for a full wiki overview, then s
 
 ### API layer — `api.py`
 
-- Bearer token auth middleware: all `/api/*` routes except `/api/login` require `Authorization: Bearer <token>`
+- Bearer token auth middleware: all `/api/*` routes except `/api/login` and `/api/health` require `Authorization: Bearer <token>`
+- `/api/health` — public, returns `{"status": "ok"}`; `/api/readme` — serves `README.md` content
 - Sessions are in-memory (cleared on restart)
 - Ingest and query run in a background thread and stream SSE (`type: tool | done | error`)
 - Serves `frontend/dist/` as SPA when the build exists
@@ -98,4 +99,4 @@ Query agent always starts by reading `index.md` for a full wiki overview, then s
 - `pages/Login.tsx` — login gate shown when no token in localStorage
 - `pages/Graph.tsx` — D3 force-directed graph; blue nodes = existing pages (sized by degree), dashed = linked but not created; zoom/pan/drag; click navigates to page
 - All API calls go through `apiFetch()`, never bare `fetch()`
-- React Router: `/` Index, `/graph`, `/page/:title`, `/query`, `/ingest`, `/lint`, `/log`, `/stats`, `/raw`
+- React Router: `/` README, `/graph`, `/page/:title`, `/query`, `/ingest`, `/lint`, `/log`, `/stats`, `/raw`
