@@ -30,6 +30,7 @@ When `frontend/dist/` exists, `api.py` serves the SPA at `/`.
 .venv/bin/python main.py ingest -
 .venv/bin/python main.py query '<question>'
 .venv/bin/python main.py query --no-cache '<question>'
+.venv/bin/python main.py lint
 .venv/bin/python main.py index | show <title> | log | graph
 ```
 
@@ -56,7 +57,6 @@ Loaded by `python-dotenv` in `llm.py`. The OpenAI client points at `https://api.
 wiki/    ← knowledge graph pages + index.md + log.md (system-managed)
 cache/   ← QA answer cache (keyed by exact question, gitignored)
 raw/     ← original ingested source documents, timestamped (gitignored)
-docs/    ← project planning documents
 frontend/← React 19 SPA
 ```
 
@@ -98,4 +98,4 @@ Query agent's `_restricted_read` also blocks access to `index` and `log` by titl
 - `pages/Login.tsx` — login gate shown when no token in localStorage
 - `pages/Graph.tsx` — D3 force-directed graph; blue nodes = existing pages (sized by degree), dashed = linked but not created; zoom/pan/drag; click navigates to page
 - All API calls go through `apiFetch()`, never bare `fetch()`
-- React Router: `/` Index, `/graph`, `/page/:title`, `/query`, `/ingest`, `/log`
+- React Router: `/` Index, `/graph`, `/page/:title`, `/query`, `/ingest`, `/lint`, `/log`, `/stats`, `/raw`
