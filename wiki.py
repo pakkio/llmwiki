@@ -109,7 +109,7 @@ def rebuild_index() -> None:
             (l.strip() for l in text.splitlines() if l.strip() and not l.startswith("#")),
             ""
         )
-        summary = re.sub(r"\*\*([^*]+)\*\*", r"\1", summary)[:120]
+        summary = re.sub(r"\*\*([^*]+)\*\*", r"\1", summary)[:300]
         links = sorted(set(re.findall(r'\[\[([^\]|]+)(?:\|[^\]]*)?\]\]', text)))
         link_str = ", ".join(f"[[{l}]]" for l in links[:5]) + ("…" if len(links) > 5 else "")
         lines.append(f"## [[{p.stem}]]\n{summary}\n\n_Links: {link_str}_\n")

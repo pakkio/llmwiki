@@ -69,7 +69,7 @@ Single source of truth for all filesystem I/O. Manages three directories:
 - `cache/` — `read_cache(question)` / `write_cache(question, content)`; files named by sanitized question text
 - `raw/` — `save_raw(text, source)` appends timestamped source documents on every ingest
 
-`_RESERVED = {"index", "log"}` — these wiki files are system-managed and excluded from all LLM tool results.
+`_RESERVED = {"index", "log"}` — these wiki files are system-managed and excluded from `list_pages` / `search_pages` results, but both agents can read them directly via `read_page`.
 
 ### LLM layer — `llm.py`
 
@@ -83,7 +83,7 @@ Single source of truth for all filesystem I/O. Manages three directories:
 
 **`query.py`**: checks `cache/` for exact match first (free, instant); on miss runs agent (read-only tools — no `write_page`) → writes result to `cache/` → appends log. `use_cache=False` skips the read but still refreshes the cache.
 
-Query agent's `_restricted_read` also blocks access to `index` and `log` by title.
+Query agent always starts by reading `index.md` for a full wiki overview, then searches for relevant pages. It can also read `log.md` directly if useful.
 
 ### API layer — `api.py`
 

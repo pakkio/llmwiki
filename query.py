@@ -1,15 +1,12 @@
 from llm import agent
-from wiki import TOOLS, DISPATCH, _RESERVED, read_page, read_cache, write_cache, append_log
+from wiki import TOOLS, DISPATCH, read_page, read_cache, write_cache, append_log
 
 # Query agent gets read-only tools (no write_page)
 _QUERY_TOOLS = [t for t in TOOLS if t["function"]["name"] != "write_page"]
 
 
 def _restricted_read(args: dict) -> str:
-    title = args.get("title", "")
-    if title in _RESERVED:
-        return f"Page '{title}' is not available."
-    return read_page(title)
+    return read_page(args.get("title", ""))
 
 
 _QUERY_DISPATCH = {
@@ -25,9 +22,13 @@ Rules:
 - If the wiki lacks the information, say so clearly rather than guessing.
 - Always cite which pages you drew from at the end of your answer.
 
-Steps:
+MANDATORY first step — no exceptions:
+- Call read_page("index") before anything else. Do not search or read any page until you have done this.
+- If the index alone is sufficient to answer (listing, coverage, discovery questions), answer immediately without searching or reading further.
+
+Then (only if more detail is needed):
 1. search_pages with 1–2 keyword variants to locate relevant pages.
-2. list_pages if search returns nothing, to browse what exists.
+2. list_pages if search returns nothing.
 3. read_page for each relevant page.
 4. Follow [[WikiLinks]] — if a linked concept is relevant, read that page too.
 5. Answer concisely, grounded in what you read. End with: *Sources: [[Page1]], [[Page2]]*"""

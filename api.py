@@ -21,12 +21,13 @@ _AUTH_PASS = os.environ.get("AUTH_PASSWORD", "")
 _sessions: set[str] = set()
 
 app = FastAPI(title="llmwiki")
+ROOT_DIR = Path(__file__).parent
 
 
 @app.middleware("http")
 async def auth_middleware(request: Request, call_next):
     path = request.url.path
-    if path.startswith("/api/") and path != "/api/login":
+    if path.startswith("/api/") and path not in ("/api/login", "/api/health"):
         auth = request.headers.get("Authorization", "")
         token = auth.removeprefix("Bearer ").strip()
         if token not in _sessions:
@@ -45,6 +46,11 @@ app.add_middleware(
 class LoginRequest(BaseModel):
     username: str
     password: str
+
+
+@app.get("/api/health")
+def api_health():
+    return {"status": "ok"}
 
 
 @app.post("/api/login")
@@ -83,6 +89,14 @@ def api_list_pages():
             "size": len(text),
         })
     return pages
+
+
+@app.get("/api/readme")
+def api_readme():
+    readme_path = ROOT_DIR / "README.md"
+    if not readme_path.exists():
+        raise HTTPException(status_code=404, detail="README not found")
+    return {"content": readme_path.read_text()}
 
 
 @app.get("/api/pages/{title:path}")
@@ -310,7 +324,7 @@ def api_query(req: QueryRequest):
     return StreamingResponse(stream(), media_type="text/event-stream")
 
 
-DIST = Path(__file__).parent / "frontend" / "dist"
+DIST = ROOT_DIR / "frontend" / "dist"
 if DIST.exists():
     app.mount("/", StaticFiles(directory=str(DIST), html=True), name="spa")
 
