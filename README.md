@@ -4,10 +4,13 @@ A Karpathy-style LLM-powered personal knowledge base. Paste or ingest any docume
 
 ## Features
 
-- **Ingest** — paste text or drop a file; the agent creates 3–8 atomic wiki pages with `[[WikiLinks]]`
-- **Query** — ask questions answered only from the wiki; results cached for instant repeat queries
-- **Graph** — interactive force-directed graph of wiki page relationships (D3, zoom/pan/drag)
-- **Log** — per-operation cost, time, token counts (DeepSeek V4-Flash pricing)
+- **Ingest** — paste text or submit a file; the agent turns it into linked wiki pages
+- **Query** — ask questions answered only from the wiki; repeat queries are cached
+- **Graph** — interactive force-directed graph of wiki page relationships
+- **Lint** — wiki health checks for gaps, orphan pages, and missing cross-references
+- **Stats** — usage and cost totals for ingest/query/cache activity
+- **Raw** — browse original ingested source documents, including deleted entries from the log
+- **Log** — per-operation cost, time, and token counts
 - **CLI + Web UI** — both interfaces share the same Python backend
 
 ## Quick start
@@ -22,7 +25,7 @@ echo "AUTH_PASSWORD=<password>"   >> .env
 cd frontend && npm install && npm run build && cd ..
 
 # 3. Start server
-nohup .venv/bin/python api.py > server.log 2>&1 &
+.venv/bin/python api.py
 # → http://0.0.0.0:8080
 ```
 
@@ -32,21 +35,21 @@ nohup .venv/bin/python api.py > server.log 2>&1 &
 wiki/    ← knowledge graph (Markdown pages + index.md + log.md)
 cache/   ← cached QA answers (keyed by question)
 raw/     ← original ingested source documents (saved on every ingest)
-docs/    ← project planning documents
 frontend/← React 19 + Vite + Tailwind SPA
 ```
 
 ## CLI usage
 
 ```bash
-uv run python main.py ingest <file>          # ingest a file
-uv run python main.py ingest -               # ingest from stdin
-uv run python main.py query '<question>'     # query the wiki
-uv run python main.py query --no-cache '<question>'  # bypass cache
-uv run python main.py index                  # list all pages
-uv run python main.py show <title>           # render a page
-uv run python main.py log                    # operation log
-uv run python main.py graph                  # WikiLink graph (CLI)
+.venv/bin/python main.py ingest <file>       # ingest a file
+.venv/bin/python main.py ingest -            # ingest from stdin
+.venv/bin/python main.py query '<question>'  # query the wiki
+.venv/bin/python main.py query --no-cache '<question>'  # bypass cache
+.venv/bin/python main.py lint                # run wiki health checks
+.venv/bin/python main.py index               # list all pages
+.venv/bin/python main.py show <title>        # render a page
+.venv/bin/python main.py log                 # operation log
+.venv/bin/python main.py graph               # WikiLink graph (CLI)
 ```
 
 ## Environment variables
@@ -64,7 +67,7 @@ ingest.py / query.py   ← system prompts + agent orchestration
 llm.py                 ← DeepSeek agent loop (tool calling, cost tracking)
 wiki.py                ← all filesystem I/O (wiki/, cache/, raw/)
 api.py                 ← FastAPI + Bearer token auth + SSE streaming
-frontend/src/          ← React SPA (Index, Page, Query, Ingest, Log, Graph)
+frontend/src/          ← React SPA (Index, Page, Query, Ingest, Lint, Log, Stats, Raw, Graph)
 ```
 
 - **Ingest agent** has full read/write access to `wiki/`
