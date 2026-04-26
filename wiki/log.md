@@ -1,0 +1,67 @@
+# Wiki Log
+
+- `2026-04-25 16:14 UTC` **init** — index rebuilt from existing pages
+- `2026-04-25 16:16 UTC` **query** — What is a vector store? → A **vector store** (also called a vector database) is a system designed to index
+- `2026-04-25 16:20 UTC` **ingest** — 837 chars → Here's a summary of what was done:  **Page created:** **Attention Mechanism** — a dedicated, comprehensive page covering
+- `2026-04-25 16:20 UTC` **query** — How does self-attention differ from cross-attention? → The wiki clearly explains the difference. Here's the answer:  ## How Self-Attent
+- `2026-04-25 16:22 UTC` **query** — what is a rag? → **RAG** stands for **Retrieval-Augmented Generation**. It is a hybrid AI archite
+- `2026-04-25 16:23 UTC` **query** — what is an hallucination? → Based on the wiki, here is what is said about hallucinations:  **Hallucination**
+- `2026-04-25 16:24 UTC` **query** — what is a dimension in a vector? → Based on the wiki content I've reviewed, here is what I can tell you:  The wiki 
+- `2026-04-25 16:25 UTC` **query** — what is a dimension in a vector? → Based on what I've read in the wiki, here's what I can tell you about dimensions
+- `2026-04-25 16:26 UTC` **query** — what is a bit? → The wiki does not contain any page about what a "bit" is. The existing pages cov
+- `2026-04-25 16:26 UTC` **query** — what is a model? → Based on the wiki, here is what a "model" refers to:  In this wiki, a **model** 
+- `2026-04-25 21:07 UTC` **query** — what is rag? → **RAG** stands for **Retrieval-Augmented Generation**, a hybrid AI architecture 
+- `2026-04-25 21:10 UTC` **ingest** — 8,254 chars → **Summary:** I created 8 new wiki pages from the Italian Wikipedia article "Sette meraviglie del mondo." The main concep
+- `2026-04-25 21:14 UTC` **ingest** — 47,375 chars → All pages created successfully. Here is a summary of what was done:  ## Summary  **Pages written (7 new):** 1. **Babilon
+- `2026-04-25 21:14 UTC` **query** — babilonia → Ecco una panoramica completa su **Babilonia** basata sulle pagine wiki disponibi
+- `2026-04-25 21:15 UTC` **query** — ziqqurat  → Ecco ciò che ho trovato nel wiki riguardo allo **ziqqurat** (o **ziggurat**):  I
+- `2026-04-25 21:15 UTC` **query** — ziqqurat  → There's no dedicated "Ziqqurat" or "Ziggurat" page, but the term is mentioned on
+- `2026-04-25 21:16 UTC` **query** — ziqqurat in italiano → Nel wiki non esiste una pagina dedicata esclusivamente al termine "ziqqurat". Tu
+- `2026-04-25 21:17 UTC` **query** — Nabucodonosor in italiano → Ecco le informazioni su **Nabucodonosor (Nabucodonosor II)**:  **Nabucodonosor I
+- `2026-04-25 21:18 UTC` **query** — giardini pensili in italiano → Ecco le informazioni principali sui **Giardini pensili di Babilonia**, presenti 
+- `2026-04-25 21:27 UTC` **query** — ur in italiano → Ecco le pagine che sono in italiano nel wiki:  1. **Babilonia (città antica)** 2
+- `2026-04-25 21:28 UTC` **query** — ur citta' in italiano → Ecco le informazioni sulla città antica di Babilonia presenti nel wiki.  ---  # 
+- `2026-04-25 21:29 UTC` **query** — dove si trova babilonia? → Babilonia era un'antica città situata nella regione della **Mesopotamia**, sul f
+- `2026-04-25 21:30 UTC` **query** — ninive → The wiki does not contain any page about **Ninive** (the ancient Assyrian city o
+- `2026-04-25 21:30 UTC` **query** — ninive famosa citta' babilonese → Nel wiki non esiste una pagina dedicata a Ninive. L'unico riferimento a Ninive s
+- `2026-04-25 21:31 UTC` **query** — ninive → La tua domanda è su **Ninive**. Dal wiki non esiste una pagina dedicata a Ninive
+- `2026-04-25 21:31 UTC` **query** — ninive giardini pensili → Il wiki non ha una pagina specifica su **Ninive**. Tuttavia, la pagina dedicata 
+- `2026-04-25 21:32 UTC` **query** — ebrei → The wiki has no page or mention of "ebrei" (Hebrews/Jews in Italian). The term i
+- `2026-04-25 21:32 UTC` **query** — ebraico → The wiki does not have any pages related to "ebraico" (Hebrew). Based on the lis
+- `2026-04-25 21:33 UTC` **query** — colosso → Ecco ciò che ho trovato nel wiki riguardo al **Colosso di Rodi**:  Il **Colosso 
+- `2026-04-25 21:42 UTC` **query** — babilonia → Ecco una panoramica completa su **Babilonia** basata sul wiki.  ---  ## Babiloni
+- `2026-04-25 21:44 UTC` **query** — esagila → There is no dedicated page for Esagila, but I found information across the exist
+- `2026-04-25 21:48 UTC` **query** — babilonia use english → The wiki contains pages about Babylon/Babilonia, but all content is in Italian. 
+- `2026-04-25 21:49 UTC` **query** — etemenanki in hungarian → Il wiki è in italiano e non contiene una pagina specifica in lingua ungherese su
+- `2026-04-26 10:17 UTC` **query** — "ishtar" · 6 turns · 11.9s · $0.0009 · 11,117 in / 581 out tok
+- `2026-04-26 10:17 UTC` **query** — "ishtar" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 10:18 UTC` **query** — "ishtar in italiano" · 4 turns · 7.6s · $0.0003 · 4,162 in / 407 out tok
+- `2026-04-26 10:19 UTC` **query** — "portas ishtar in italiano" · 3 turns · 7.1s · $0.0003 · 2,734 in / 469 out tok
+- `2026-04-26 10:25 UTC` **query** — "ninive" · 4 turns · 8.1s · $0.0005 · 4,861 in / 451 out tok
+- `2026-04-26 10:25 UTC` **query** — "ninive" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 10:29 UTC` **ingest** — 56,595 chars · 14 turns · 168.1s · $0.0154 · 336,310 in / 13,200 out tok
+- `2026-04-26 10:29 UTC` **query** — "ninive" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 10:30 UTC` **query** — "ninive" · 4 turns · 11.4s · $0.0010 · 8,306 in / 759 out tok
+- `2026-04-26 10:30 UTC` **query** — "ninive" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 10:45 UTC` **query** — "what is the attention mechanism?" · 3 turns · 10.4s · $0.0006 · 4,448 in / 678 out tok
+- `2026-04-26 10:56 UTC` **query** — "citta' di Ur" · 4 turns · 9.5s · $0.0004 · 4,694 in / 510 out tok
+- `2026-04-26 10:58 UTC` **ingest** — 72,143 chars · 7 turns · 95.8s · $0.0104 · 170,673 in / 7,563 out tok
+- `2026-04-26 10:59 UTC` **query** — "Ur" · 3 turns · 14.8s · $0.0011 · 7,624 in / 1,063 out tok
+- `2026-04-26 10:59 UTC` **query** — "Ur" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 11:00 UTC` **query** — "ur" · 3 turns · 9.1s · $0.0006 · 5,086 in / 570 out tok
+- `2026-04-26 11:00 UTC` **query** — "ur" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 11:19 UTC` **query** — "wikipedia" · 3 turns · 10.1s · $0.0004 · 3,157 in / 617 out tok
+- `2026-04-26 14:08 UTC` **lint** — 37 pages · 9 turns · 111.8s · $0.0113 · 182,740 in / 7,827 out tok
+- `2026-04-26 14:12 UTC` **query** — "ur" · 1 turns · 1.6s · $0.0000 · 710 in / 66 out tok
+- `2026-04-26 14:13 UTC` **query** — "città di ur" · 3 turns · 18.5s · $0.0012 · 8,796 in / 1,249 out tok
+- `2026-04-26 14:14 UTC` **query** — "città di ur" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 14:14 UTC` **query** — "eufrate" · 5 turns · 11.8s · $0.0007 · 9,949 in / 622 out tok
+- `2026-04-26 14:15 UTC` **query** — "eufrate" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 14:16 UTC` **query** — "iraq" · 5 turns · 24.6s · $0.0024 · 24,026 in / 1,558 out tok
+- `2026-04-26 14:23 UTC` **lint** — 37 pages · 9 turns · 100.9s · $0.0113 · 199,777 in / 7,309 out tok
+- `2026-04-26 14:29 UTC` **ingest** — 16,950 chars · 4 turns · 67.1s · $0.0035 · 29,959 in / 4,903 out tok · raw:20260426_142804.txt
+- `2026-04-26 14:29 UTC` **query** — "plinio" · 3 turns · 11.4s · $0.0006 · 4,405 in / 746 out tok
+- `2026-04-26 14:30 UTC` **query** — "plinio" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 14:35 UTC` **query** — "bibbia" · 4 turns · 16.9s · $0.0013 · 9,952 in / 1,107 out tok
+- `2026-04-26 14:36 UTC` **query** — "bibbia" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 14:37 UTC` **query** — "Gerusalemme" · 4 turns · 10.1s · $0.0006 · 6,129 in / 616 out tok

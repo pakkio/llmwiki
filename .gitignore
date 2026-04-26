@@ -1,0 +1,10 @@
+frontend/dist/
+frontend/node_modules/
+__pycache__/
+.env
+.venv/
+cache/
+raw/
+server.log
+*.log
+.claude/settings.local.json
