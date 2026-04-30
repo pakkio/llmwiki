@@ -6,8 +6,12 @@ interface ToolEvent {
   args: Record<string, string>
 }
 
+type Mode = 'text' | 'url'
+
 export default function IngestPage() {
+  const [mode, setMode] = useState<Mode>('text')
   const [text, setText] = useState('')
+  const [url, setUrl] = useState('')
   const [running, setRunning] = useState(false)
   const [events, setEvents] = useState<ToolEvent[]>([])
   const [result, setResult] = useState('')
@@ -18,22 +22,24 @@ export default function IngestPage() {
     const file = e.dataTransfer.files[0]
     if (!file) return
     const reader = new FileReader()
-    reader.onload = ev => setText(ev.target?.result as string)
+    reader.onload = ev => { setText(ev.target?.result as string); setMode('text') }
     reader.readAsText(file)
   }
 
   async function submit() {
-    if (!text.trim() || running) return
+    const ready = mode === 'url' ? url.trim() : text.trim()
+    if (!ready || running) return
     setRunning(true)
     setEvents([])
     setResult('')
     setError('')
 
     try {
+      const body = mode === 'url' ? { url: url.trim() } : { text }
       const res = await apiFetch('/api/ingest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify(body),
       })
       const reader = res.body!.getReader()
       const decoder = new TextDecoder()
@@ -66,25 +72,52 @@ export default function IngestPage() {
     <div className="max-w-2xl">
       <h1 className="text-2xl font-bold mb-6">Ingest</h1>
 
-      <div
-        onDrop={handleDrop}
-        onDragOver={e => e.preventDefault()}
-        className="mb-4 border-2 border-dashed border-gray-300 rounded-xl p-3 text-center text-sm text-gray-400 hover:border-blue-300 transition-colors"
-      >
-        Drop a text file here, or paste below
+      <div className="flex gap-2 mb-4">
+        <button
+          onClick={() => setMode('text')}
+          className={`px-4 py-1.5 rounded-lg text-sm font-medium ${mode === 'text' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+        >
+          Text / File
+        </button>
+        <button
+          onClick={() => setMode('url')}
+          className={`px-4 py-1.5 rounded-lg text-sm font-medium ${mode === 'url' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+        >
+          URL
+        </button>
       </div>
 
-      <textarea
-        value={text}
-        onChange={e => setText(e.target.value)}
-        rows={10}
-        placeholder="Paste document text here…"
-        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-400 resize-y mb-4"
-      />
+      {mode === 'url' ? (
+        <input
+          type="url"
+          value={url}
+          onChange={e => setUrl(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && submit()}
+          placeholder="https://…"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4"
+        />
+      ) : (
+        <>
+          <div
+            onDrop={handleDrop}
+            onDragOver={e => e.preventDefault()}
+            className="mb-4 border-2 border-dashed border-gray-300 rounded-xl p-3 text-center text-sm text-gray-400 hover:border-blue-300 transition-colors"
+          >
+            Drop a text file here, or paste below
+          </div>
+          <textarea
+            value={text}
+            onChange={e => setText(e.target.value)}
+            rows={10}
+            placeholder="Paste document text here…"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-400 resize-y mb-4"
+          />
+        </>
+      )}
 
       <button
         onClick={submit}
-        disabled={running || !text.trim()}
+        disabled={running || !(mode === 'url' ? url.trim() : text.trim())}
         className="px-5 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 disabled:opacity-50"
       >
         {running ? 'Ingesting…' : 'Ingest'}

@@ -31,3 +31,20 @@ The choice of chunking strategy directly impacts retrieval quality: chunks that 
 - [[Embedding Model]]
 - [[Vector Store]]
 - [[Large Language Model]]
+
+
+
+---
+
+## Chunk Size Guidelines
+
+For [[Retrieval-Augmented Generation]] pipelines, typical chunk sizes range from **256–1024 tokens** per chunk. A well-tuned RAG pipeline with 5–10 retrieved chunks often outperforms a naive "stuff everything in" approach, even when the [[Large Language Model]] could technically fit all the data in its [[Context Window]].
+
+## Relationship to Context Windows
+
+Chunking is the foundation of the most common strategy for working within [[Context Window]] limits: instead of stuffing everything into the context, split documents into chunks, create [[Embedding Model|vector embeddings]] of each chunk, retrieve only the top-K most relevant at query time, and feed only those chunks into the LLM's context. This lets you work with datasets of any size while using only a fraction of the context window.
+
+## See Also
+
+- [[Context Window]]
+- [[Context Compression]]

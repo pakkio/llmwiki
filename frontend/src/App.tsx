@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom'
 import IndexPage from './pages/Index'
+import ReadmePage from './pages/Readme'
 import PageView from './pages/Page'
 import QueryPage from './pages/Query'
 import IngestPage from './pages/Ingest'
@@ -13,7 +14,8 @@ import Login from './pages/Login'
 import { getToken, clearToken } from './auth'
 
 const nav = [
-  { to: '/',       label: 'Index'  },
+  { to: '/',       label: 'README' },
+  { to: '/index',  label: 'Index'  },
   { to: '/graph',  label: 'Graph'  },
   { to: '/query',  label: 'Query'  },
   { to: '/ingest', label: 'Ingest' },
@@ -68,7 +70,8 @@ export default function App() {
         </aside>
         <main className="flex-1 overflow-auto p-8 flex flex-col">
           <Routes>
-            <Route path="/"            element={<IndexPage />} />
+            <Route path="/"            element={<ReadmePage />} />
+            <Route path="/index"       element={<IndexPage />} />
             <Route path="/graph"       element={<GraphPage />} />
             <Route path="/page/:title" element={<PageView />} />
             <Route path="/query"       element={<QueryPage />} />

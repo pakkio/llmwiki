@@ -65,3 +65,47 @@
 - `2026-04-26 14:35 UTC` **query** — "bibbia" · 4 turns · 16.9s · $0.0013 · 9,952 in / 1,107 out tok
 - `2026-04-26 14:36 UTC` **query** — "bibbia" · cached · $0.0000 · 0 in / 0 out tok
 - `2026-04-26 14:37 UTC` **query** — "Gerusalemme" · 4 turns · 10.1s · $0.0006 · 6,129 in / 616 out tok
+- `2026-04-26 18:13 UTC` **query** — "babilonia" · 3 turns · 13.9s · $0.0007 · 4,931 in / 1,039 out tok
+- `2026-04-26 18:14 UTC` **query** — "babilonia" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 22:26 UTC` **query** — "babilonia" · 3 turns · 11.5s · $0.0007 · 4,971 in / 798 out tok
+- `2026-04-26 22:29 UTC` **query** — "Which pages in the wiki mention Alessandro Magno?" · 3 turns · 17.7s · $0.0015 · 9,253 in / 1,488 out tok
+- `2026-04-26 22:33 UTC` **query** — "Which pages in the wiki mention Alessandro Magno?" · 4 turns · 20.6s · $0.0023 · 21,377 in / 1,587 out tok
+- `2026-04-26 22:35 UTC` **query** — "What AI and machine learning topics are covered in the wiki?…" · 4 turns · 18.6s · $0.0019 · 19,071 in / 1,435 out tok
+- `2026-04-26 22:40 UTC` **query** — "What AI and machine learning topics are covered in the wiki?…" · 4 turns · 20.4s · $0.0022 · 23,521 in / 1,562 out tok
+- `2026-04-26 22:42 UTC` **query** — "What topics does the wiki cover?" · 2 turns · 7.8s · $0.0009 · 6,621 in / 583 out tok
+- `2026-04-26 22:43 UTC` **query** — "Which pages are about ancient Mesopotamia?" · 6 turns · 29.6s · $0.0025 · 35,207 in / 2,322 out tok
+- `2026-04-26 22:47 UTC` **query** — "Which pages are about ancient Mesopotamia?" · 4 turns · 16.1s · $0.0017 · 20,241 in / 1,164 out tok
+- `2026-04-26 22:49 UTC` **query** — "Which pages are about alessandria?" · 4 turns · 8.8s · $0.0014 · 19,512 in / 543 out tok
+- `2026-04-26 22:49 UTC` **query** — "Which pages are about alessandria?" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-26 22:50 UTC` **query** — "Which pages are about gerusalemme?" · 3 turns · 6.0s · $0.0010 · 12,733 in / 350 out tok
+- `2026-04-26 22:50 UTC` **query** — "gerusalemme" · 4 turns · 10.9s · $0.0017 · 21,343 in / 748 out tok
+- `2026-04-26 22:51 UTC` **query** — "libano" · 4 turns · 8.1s · $0.0013 · 19,042 in / 481 out tok
+- `2026-04-26 22:51 UTC` **query** — "irak" · 4 turns · 17.9s · $0.0024 · 25,798 in / 1,331 out tok
+- `2026-04-27 07:22 UTC` **query** — "ur" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-27 07:22 UTC` **query** — "citta' di ur" · 3 turns · 17.8s · $0.0013 · 14,212 in / 681 out tok
+- `2026-04-27 07:22 UTC` **query** — "citta' di ur" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-27 07:23 UTC` **query** — "citta' di babilo" · 3 turns · 15.1s · $0.0015 · 14,529 in / 1,101 out tok
+- `2026-04-27 07:52 UTC` **ingest** — 18,375 chars · 3 turns · 58.8s · $0.0025 · 20,625 in / 4,529 out tok · raw:20260427_075101.txt
+- `2026-04-27 07:53 UTC` **query** — "chi e' karpathy" · 5 turns · 11.6s · $0.0017 · 28,916 in / 574 out tok
+- `2026-04-27 07:53 UTC` **query** — "chi e' karpathy" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-27 07:57 UTC` **lint** — 50 pages · 14 turns · 121.9s · $0.0189 · 434,250 in / 8,379 out tok
+- `2026-04-28 07:08 UTC` **query** — "pompei" · 4 turns · 10.9s · $0.0015 · 21,404 in / 635 out tok
+- `2026-04-28 09:20 UTC` **query** — "citta di ur " · 3 turns · 13.4s · $0.0015 · 15,216 in / 879 out tok
+- `2026-04-28 09:23 UTC` **lint** — 50 pages · 17 turns · 154.6s · $0.0214 · 505,941 in / 10,339 out tok
+- `2026-04-28 11:57 UTC` **query** — "ur" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-28 11:58 UTC` **query** — "citta' di ur" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-28 11:59 UTC` **query** — "Enheduanna" · 3 turns · 8.4s · $0.0012 · 14,159 in / 506 out tok
+- `2026-04-28 11:59 UTC` **query** — "Enheduanna in italiano" · 3 turns · 10.0s · $0.0013 · 14,205 in / 649 out tok
+- `2026-04-28 12:02 UTC` **query** — "mesopotamia" · 4 turns · 19.0s · $0.0020 · 24,078 in / 1,229 out tok
+- `2026-04-28 12:04 UTC` **query** — "ur in italiano" · 2 turns · 8.1s · $0.0010 · 7,198 in / 584 out tok
+- `2026-04-28 12:05 UTC` **query** — "la citta' di ur in italiano" · 3 turns · 13.5s · $0.0015 · 15,273 in / 956 out tok
+- `2026-04-28 15:54 UTC` **query** — "karpathy" · 4 turns · 9.7s · $0.0015 · 21,320 in / 551 out tok
+- `2026-04-28 15:55 UTC` **query** — "karpathy" · cached · $0.0000 · 0 in / 0 out tok
+- `2026-04-28 15:55 UTC` **query** — "llm wiki" · 3 turns · 8.5s · $0.0013 · 14,456 in / 546 out tok
+- `2026-04-28 15:57 UTC` **query** — "is llm wiki better than rag with < 1000 docs?" · 4 turns · 18.1s · $0.0018 · 22,577 in / 1,255 out tok
+- `2026-04-28 16:01 UTC` **ingest** — 16,946 chars · 14 turns · 90.8s · $0.0073 · 158,348 in / 6,319 out tok · raw:20260428_155946.txt
+- `2026-04-28 16:02 UTC` **query** — "is llm wiki better than rag with < 1000 docs?" · 6 turns · 23.2s · $0.0027 · 43,622 in / 1,509 out tok
+- `2026-04-28 16:03 UTC` **query** — "context" · 3 turns · 13.0s · $0.0016 · 16,908 in / 859 out tok
+- `2026-04-28 16:05 UTC` **ingest** — 3,755 chars · 8 turns · 62.5s · $0.0039 · 61,534 in / 4,425 out tok · raw:20260428_160450.txt
+- `2026-04-28 16:06 UTC` **query** — "deepseek e' un pericolo per l'america?" · 4 turns · 12.8s · $0.0020 · 25,894 in / 794 out tok
+- `2026-04-28 16:07 UTC` **query** — "deepseek ha un contesto grande?" · 3 turns · 12.5s · $0.0019 · 19,374 in / 855 out tok

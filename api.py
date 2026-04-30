@@ -202,7 +202,8 @@ def api_graph():
 
 
 class IngestRequest(BaseModel):
-    text: str
+    text: str = ""
+    url: str = ""
 
 
 @app.post("/api/ingest")
@@ -219,7 +220,16 @@ def api_ingest(req: IngestRequest):
 
         def run():
             try:
-                final["result"] = ingest(req.text, on_tool=on_tool)
+                if req.url:
+                    import httpx
+                    r = httpx.get(req.url, follow_redirects=True, timeout=30)
+                    r.raise_for_status()
+                    text = r.text
+                    source = req.url
+                else:
+                    text = req.text
+                    source = ""
+                final["result"] = ingest(text, on_tool=on_tool, source=source)
             except Exception as e:
                 exc_holder["error"] = str(e)
 

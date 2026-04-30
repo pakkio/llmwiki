@@ -1,6 +1,6 @@
 # Wiki Index
 
-_44 pages — last updated 2026-04-26 22:37 UTC_
+_60 pages — last updated 2026-04-28 16:05 UTC_
 
 ## [[Assurbanipal]]
 Assurbanipal (in accadico: *Aššur-bāni-apli*, "Ashur ha creato un erede"), regnante dal 668 al 627 a.C. circa, fu l'ultimo grande re dell'[[Impero neo-assiro]]. Sotto il suo regno l'impero raggiunse la massima estensione territoriale, dalla [[Mesopotamia]] all'[[Egitto]], dall'[[Anatolia]] all'[[Ira
@@ -30,17 +30,52 @@ _Links: [[Assur]], [[Assurbanipal]], [[Babilonesi]], [[Babilonia (città antica)
 ## [[Chunking Strategy]]
 A chunking strategy defines how documents are split into smaller pieces (chunks) before being embedded and indexed in a [[Vector Store]]. It is a critical design decision in [[Retrieval-Augmented Generation]] (RAG) pipelines.
 
-_Links: [[Embedding Model]], [[Large Language Model]], [[Retrieval-Augmented Generation]], [[Vector Store]]_
+_Links: [[Context Compression]], [[Context Window]], [[Embedding Model]], [[Large Language Model]], [[Retrieval-Augmented Generation]]…_
+
+## [[Claude Code]]
+Summary: Anthropic's terminal-based coding agent that runs in the local environment with direct [[filesystem]] access, used as the primary query interface for [[Karpathy's LLM Wiki]].
+
+_Links: [[Anthropic]], [[Gemini]], [[Karpathy's LLM Wiki]], [[Markdown]], [[MindStudio]]…_
 
 ## [[Colosso di Rodi]]
 Il Colosso di Rodi è una delle [[Sette meraviglie del mondo]] antiche. Si trattava di un'enorme statua bronzea situata molto probabilmente all'ingresso del porto dell'isola di Rodi, in Grecia.
 
 _Links: [[Alessandro Magno]], [[Plinio il Vecchio]], [[Sette meraviglie del mondo]]_
 
+## [[Context Compression]]
+Context compression is a strategy for managing [[Context Window]] usage by reducing the size of input text before sending it to a [[Large Language Model]]. The goal is to retain essential information while minimizing token count, saving both cost and model attention capacity.
+
+_Links: [[Chunking Strategy]], [[Context Window]], [[Embedding Model]], [[Large Language Model]], [[Lost in the Middle]]…_
+
+## [[Context Window]]
+A context window is the total number of [[Tokens]] that a [[Large Language Model]] can process in a single request-response cycle. It covers both input (prompt, system instructions, retrieved documents, conversation history) and output (the model's response) tokens combined.
+
+_Links: [[Attention Mechanism]], [[Chunking Strategy]], [[Context Compression]], [[DeepSeek Sparse Attention]], [[DeepSeek-V4]]…_
+
 ## [[De iaculatione equestri]]
 Il De iaculatione equestri ("Sull'arte di lanciare da cavallo") era un trattato in un solo libro scritto da [[Plinio il Vecchio]], oggi perduto.
 
 _Links: [[Bella Germaniae]], [[Naturalis historia]], [[Plinio il Giovane]], [[Plinio il Vecchio]]_
+
+## [[DeepSeek Sparse Attention]]
+DeepSeek Sparse Attention (DSA) is a novel attention mechanism introduced in [[DeepSeek-V4]]. It combines token-wise compression with sparsity to achieve world-leading long-context efficiency, drastically reducing both compute and memory costs compared to standard [[Attention Mechanism|attention]].
+
+_Links: [[Attention Mechanism]], [[Context Compression]], [[Context Window]], [[DeepSeek-V4]], [[DeepSeek-V4-Flash]]…_
+
+## [[DeepSeek-V4-Flash]]
+DeepSeek-V4-Flash is the efficient, cost-effective variant of the [[DeepSeek-V4]] model family. With 284 billion total parameters and 13 billion active parameters, it offers fast response times and highly economical API pricing while closely approaching [[DeepSeek-V4-Pro]] in reasoning capabilities.
+
+_Links: [[Anthropic API]], [[Context Window]], [[DeepSeek Sparse Attention]], [[DeepSeek-V4]], [[DeepSeek-V4-Pro]]…_
+
+## [[DeepSeek-V4-Pro]]
+DeepSeek-V4-Pro is the larger variant of the [[DeepSeek-V4]] model family, featuring 1.6 trillion total parameters with 49 billion active parameters (activated via Mixture-of-Experts routing). It is designed for world-class reasoning, rich world knowledge, and advanced agentic capabilities.
+
+_Links: [[Anthropic API]], [[Attention Mechanism]], [[Claude Code]], [[Context Window]], [[DeepSeek Sparse Attention]]…_
+
+## [[DeepSeek-V4]]
+DeepSeek-V4 is a family of large language models released by DeepSeek on April 24, 2026, as a preview. The release introduces two model variants — [[DeepSeek-V4-Pro]] and [[DeepSeek-V4-Flash]] — both supporting a 1M-token [[Context Window]] as the default standard. DeepSeek-V4 is open-sourced with w
+
+_Links: [[Anthropic API]], [[Attention Mechanism]], [[Claude Code]], [[Context Window]], [[DeepSeek Sparse Attention]]…_
 
 ## [[Embedding Model]]
 An embedding model is a neural network that converts text (or other data modalities) into dense vector representations, also called *embeddings*. These vectors capture semantic meaning such that similar texts are positioned close together in the vector space.
@@ -97,20 +132,40 @@ L'Impero neo-babilonese (625-539 a.C.), detto anche Impero caldeo, fu l'ultimo g
 
 _Links: [[612 a.C.]], [[Alessandro Magno]], [[Anatolia]], [[Assurbanipal]], [[Babilonia (città antica)]]…_
 
+## [[Karpathy's LLM Wiki]]
+Summary: A personal knowledge management workflow pattern that uses structured [[Markdown]] files, queried by an [[Large Language Model|LLM]] (typically through [[Claude Code]]), instead of traditional browsing or search.
+
+_Links: [[Claude Code]], [[Large Language Model]], [[LlamaIndex]], [[Markdown]], [[MindStudio]]…_
+
 ## [[Large Language Model]]
 A Large Language Model (LLM) is a type of neural network model, typically based on the [[Transformer]] architecture, trained on vast amounts of text data to generate human-like text. LLMs are the generative component in [[Retrieval-Augmented Generation]] (RAG) systems.
 
-_Links: [[Chunking Strategy]], [[Embedding Model]], [[Next-Token Prediction]], [[Retrieval-Augmented Generation]], [[Transformer]]…_
+_Links: [[Chunking Strategy]], [[Context Compression]], [[Context Window]], [[Embedding Model]], [[Next-Token Prediction]]…_
+
+## [[Lost in the Middle]]
+The "Lost in the Middle" problem refers to the empirical finding that [[Large Language Model|Large Language Models]] perform best when relevant information is placed at the beginning or end of the [[Context Window]], and perform significantly worse when it is buried in the middle of the context.
+
+_Links: [[Attention Mechanism]], [[Chunking Strategy]], [[Claude Opus 4]], [[Context Window]], [[Large Language Model]]…_
 
 ## [[Marduk]]
 Marduk (in sumerico: dAMAR.UTU) era la divinità protettrice di [[Babilonia (città antica)]], che gradualmente divenne il dio supremo del pantheon mesopotamico.
 
 _Links: [[Babilonia (città antica)]], [[Ciro II di Persia]], [[Elamiti]], [[Enūma eliš]], [[Esagila]]…_
 
+## [[Markdown]]
+Summary: A lightweight markup language using plain text formatting, serving as the foundational format for [[Karpathy's LLM Wiki]] because of its portability, LLM-native readability, and zero lock-in.
+
+_Links: [[Claude Code]], [[Karpathy's LLM Wiki]], [[Large Language Model]], [[MindStudio]], [[Obsidian]]…_
+
 ## [[Mausoleo di Alicarnasso]]
 Il Mausoleo di Alicarnasso è una delle [[Sette meraviglie del mondo]] antiche. Si tratta di una monumentale tomba costruita in onore del satrapo Mausolo ad Alicarnasso (oggi Bodrum, Turchia).
 
 _Links: [[Alessandro Magno]], [[Plinio il Vecchio]], [[Sette meraviglie del mondo]], [[Tempio di Artemide]]_
+
+## [[MindStudio]]
+Summary: A no-code platform for building [[AI agent|AI agents]] and workflows, offering access to 200+ models including [[Claude Code|Claude]], GPT, and [[Gemini]], with 1,000+ pre-built integrations — used to wrap [[Karpathy's LLM Wiki]] into shareable team-facing interfaces.
+
+_Links: [[AI agent]], [[Claude Code]], [[Gemini]], [[Google Drive]], [[Karpathy's LLM Wiki]]…_
 
 ## [[Nabucodonosor II]]
 Nabucodonosor II (605-562 a.C.) fu il secondo e più importante sovrano dell'[[Impero neo-babilonese]] (detto anche "Impero caldeo"), figlio di [[Nabopolassar]]. Sotto il suo regno, [[Babilonia (città antica)]] raggiunse il massimo splendore.
@@ -126,6 +181,16 @@ _Links: [[Alcuino]], [[Beda il Venerabile]], [[Carlo Magno]], [[Dicuilo]], [[Eru
 Nineveh (in accadico: *Ninua*; in aramaico: *Ninwa*; in arabo: *Ninawa*) fu un'antica città del Vicino Oriente, situata nell'[[Alta Mesopotamia]] sulla riva orientale del fiume [[Tigri]], corrispondente all'odierna [[Mosul]] nel nord dell'[[Iraq]]. Fu la capitale e la più grande città dell'[[Impero 
 
 _Links: [[612 a.C.]], [[Alta Mesopotamia]], [[Amenhotep III]], [[Anatolia]], [[Ashur]]…_
+
+## [[Obsidian]]
+Summary: A local-first [[Markdown]] editor with a strong plugin ecosystem and clean interface, recommended as the front-end for managing [[Karpathy's LLM Wiki]].
+
+_Links: [[Claude Code]], [[Karpathy's LLM Wiki]], [[Markdown]], [[MindStudio]], [[Note Title]]…_
+
+## [[Personal Knowledge Base]]
+Summary: A system for collecting, organizing, and retrieving personal knowledge — notes, documents, research, and references — optimized for the owner's use, potentially queried by [[Large Language Model|LLMs]] in the [[Karpathy's LLM Wiki]] pattern.
+
+_Links: [[Claude Code]], [[Google Docs]], [[Karpathy's LLM Wiki]], [[Large Language Model]], [[Markdown]]…_
 
 ## [[Piramide di Cheope]]
 La Piramide di Cheope (costruita 2584-2561 a.C.) è la tomba del faraone Cheope, situata nella Necropoli di Giza, in Egitto. È l'unica delle [[Sette meraviglie del mondo]] ancora esistente, sebbene danneggiata.
@@ -147,6 +212,11 @@ La Porta di Ishtar era una delle porte monumentali di [[Babilonia (città antica
 
 _Links: [[Adad]], [[Assur]], [[Babilonia (città antica)]], [[Berlino]], [[Etemenanki]]…_
 
+## [[Prompt Caching]]
+Prompt caching is a cost-optimization technique offered by [[Large Language Model]] API providers where frequently reused input tokens (such as system prompts or shared document sets) are cached across requests, resulting in significantly reduced per-token pricing for those cached portions.
+
+_Links: [[Context Compression]], [[Context Window]], [[Context Window#Practical Strategies]], [[Large Language Model]], [[Retrieval-Augmented Generation]]_
+
 ## [[Publio Pomponio Secondo]]
 Publio Pomponio Secondo è stato un poeta tragico e generale romano del I secolo d.C., amico del padre di [[Plinio il Vecchio]].
 
@@ -155,7 +225,7 @@ _Links: [[Naturalis historia]], [[Plinio il Giovane]], [[Plinio il Vecchio]]_
 ## [[Retrieval-Augmented Generation]]
 Retrieval-Augmented Generation (RAG) is a hybrid AI architecture that combines a [[Retrieval System|retrieval system]] with a [[Large Language Model|generative language model]]. It was popularized by the 2020 Facebook AI paper by Lewis et al.
 
-_Links: [[Chunking Strategy]], [[Embedding Model]], [[Large Language Model]], [[Next-Token Prediction]], [[Retrieval System]]…_
+_Links: [[Chunking Strategy]], [[Embedding Model]], [[Large Language Model]], [[Lost in the Middle]], [[Next-Token Prediction]]…_
 
 ## [[Royal Tombs of Ur]]
 The Royal Tombs of Ur are a series of approximately 1,850 burials uncovered at the site of the ancient city of [[Ur]] in present-day Iraq. Among these, 16 tombs were designated as "royal tombs" (dating to the [[Early Dynastic IIIa period]], approximately the 25th or 24th century BC), containing many
@@ -171,6 +241,11 @@ _Links: [[Ararat]], [[Assedio di Lachish]], [[Assurbanipal]], [[Austen Henry Lay
 Le sette meraviglie del mondo (dette anche sette meraviglie classiche o sette meraviglie antiche) sono le strutture e opere architettoniche, artistiche e storiche che i Greci e i Romani ritennero i più belli e straordinari artifici dell'intera umanità.
 
 _Links: [[Alessandro Magno]], [[Antipatro di Sidone]], [[Colosso di Rodi]], [[Faro di Alessandria]], [[Giardini pensili di Babilonia]]…_
+
+## [[Sliding Window Attention]]
+Sliding Window Attention is an architectural optimization used in some [[Transformer]]-based [[Large Language Model|Large Language Models]] where each token only attends to the N most recent tokens rather than the entire sequence. This reduces the quadratic computational cost of full [[Attention Mec
+
+_Links: [[Attention Mechanism]], [[Context Window]], [[Large Language Model]], [[Transformer]]_
 
 ## [[Statua di Zeus a Olimpia]]
 La Statua di Zeus a Olimpia (Grecia) è una delle [[Sette meraviglie del mondo]] antiche. Opera dello scultore greco Fidia, rappresenta una grandiosa testimonianza di arte religiosa.
@@ -196,6 +271,11 @@ _Links: [[Alessandro Magno]], [[Mausoleo di Alicarnasso]], [[Plinio il Vecchio]]
 The Third Dynasty of Ur (also called Ur III, c. 2112–2004 BC) was a powerful Sumerian dynasty based in the city of [[Ur]] that controlled much of [[Mesopotamia]]. It is the best-documented period of Sumerian history and represented the last great native Sumerian empire before the rise of the [[Amori
 
 _Links: [[Akkadian Empire]], [[Amorites]], [[Babylon]], [[Code of Ur-Nammu]], [[Elamites]]…_
+
+## [[Tokens]]
+Tokens are the fundamental units that [[Large Language Model|Large Language Models]] read and produce. They are the atomic pieces of text that a model processes — roughly ¾ of a word in English, though the exact mapping depends on the tokenizer used by the model.
+
+_Links: [[Context Window]], [[Large Language Model]], [[Retrieval-Augmented Generation]], [[Transformer]]_
 
 ## [[Transformer]]
 Transformers are a class of deep learning architectures introduced in the 2017 paper *"Attention Is All You Need"* by Vaswani et al. Unlike earlier sequence models such as [[Recurrent Neural Networks]] (RNNs) or [[Long Short-Term Memory]] (LSTM) networks, Transformers rely entirely on an [[Attention

@@ -60,3 +60,17 @@ flowchart LR
 ## References
 
 - Lewis, P., et al. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. Facebook AI Research. NeurIPS.
+
+
+
+---
+
+## The "Lost in the Middle" Problem
+
+A critical consideration in RAG pipelines is the [[Lost in the Middle]] problem. When multiple retrieved chunks are concatenated into a prompt, [[Large Language Model|LLMs]] tend to focus on content at the beginning and end of the context while neglecting information in the middle. If the most relevant chunk lands in the middle positions, the model may effectively ignore it.
+
+**Mitigation strategies** include:
+- Re-ranking retrieved chunks so the most relevant are placed first and last.
+- Limiting the number of retrieved chunks (5–10 is often optimal).
+- Using explicit markers (headers, XML tags, numbered sections) to help the model locate information.
+- Placing the most important information right after the system prompt and instructions at the end of the prompt.

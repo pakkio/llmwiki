@@ -32,3 +32,13 @@ This reduces hallucination and allows the system to incorporate up-to-date or do
 - [[Vector Store]]
 - [[Chunking Strategy]]
 - [[Next-Token Prediction]]
+
+
+
+---
+
+## Context Windows
+
+Every LLM has a [[Context Window]] — the total number of [[Tokens]] it can process in a single request-response cycle. This includes both input (prompt, system instructions, conversation history) and output. Models in 2026 range from 128K tokens (DeepSeek V3, Mistral Large) to 1M tokens (GPT-5, Gemini 2.5 Pro, Llama 4 Maverick).
+
+The [[Context Window]] size directly impacts architectural decisions in applications like [[Retrieval-Augmented Generation]], and strategies such as [[Chunking Strategy|chunking]], [[Context Compression]], and sliding windows are used to manage it.

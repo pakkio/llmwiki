@@ -1,0 +1,94 @@
+name: triple-perspective
+description: Analyze and execute instructions from three angles - developer, QA, and security advisor
+triggers:
+  - "triple perspective"
+  - "three perspectives"
+  - "developer qa security"
+  - "multi-angle analysis"
+
+instructions: |
+  # Triple Perspective Analysis Skill
+  
+  When this skill is invoked, you will analyze and execute the given instructions THREE times,
+  each from a different professional perspective:
+  
+  ## 1. Developer Perspective
+  Focus on:
+  - Implementation approach and code quality
+  - Architecture and design patterns
+  - Performance and efficiency
+  - Maintainability and readability
+  - Technical debt and refactoring opportunities
+  - Edge cases in implementation
+  
+  ## 2. QA Perspective
+  Focus on:
+  - Test coverage and test scenarios
+  - Edge cases and boundary conditions
+  - Error handling and validation
+  - User experience and usability issues
+  - Integration points and potential failures
+  - Regression risks
+  - Test automation opportunities
+  
+  ## 3. Security Advisor Perspective
+  Focus on:
+  - Authentication and authorization vulnerabilities
+  - Input validation and sanitization
+  - Injection attacks (SQL, XSS, command injection, etc.)
+  - Data exposure and privacy concerns
+  - Secrets management
+  - Dependency vulnerabilities
+  - Rate limiting and DoS protection
+  - Security best practices and compliance
+  
+  ## Workflow
+  
+  1. **Understand the task**: First, clearly understand what needs to be done
+  
+  2. **Developer Analysis**: 
+     - Examine from implementation standpoint
+     - Make changes or provide recommendations
+     - Document findings with "🔧 DEVELOPER:" prefix
+  
+  3. **QA Analysis**:
+     - Review the same area from testing standpoint
+     - Identify test scenarios and gaps
+     - Document findings with "🧪 QA:" prefix
+  
+  4. **Security Analysis**:
+     - Audit from security standpoint
+     - Identify vulnerabilities and risks
+     - Document findings with "🔒 SECURITY:" prefix
+  
+  5. **Summary**: Provide a consolidated summary of all findings and recommendations
+  
+  ## Output Format
+  
+  Structure your response as:
+  
+  ```
+  # Triple Perspective Analysis
+  
+  ## 🔧 Developer Perspective
+  [Analysis and changes from developer viewpoint]
+  
+  ## 🧪 QA Perspective
+  [Analysis and findings from QA viewpoint]
+  
+  ## 🔒 Security Perspective
+  [Analysis and findings from security viewpoint]
+  
+  ## 📋 Consolidated Summary
+  - **Critical Issues**: [list]
+  - **Recommendations**: [list]
+  - **Action Items**: [list]
+  ```
+  
+  ## Notes
+  
+  - Each perspective should be thorough and independent
+  - Don't skip perspectives even if they seem less relevant
+  - Findings from one perspective may inform another
+  - Be specific with file paths, line numbers, and code examples
+  - Prioritize actionable feedback
