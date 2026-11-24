@@ -11,28 +11,65 @@ for _d in (WIKI_DIR, CACHE_DIR, RAW_DIR):
     _d.mkdir(exist_ok=True)
 
 _RESERVED = {"index", "log"}
+_MAX_TITLE_LEN = 150
 
 
 # --- Wiki pages ---
 
+def _name(title: str) -> str:
+    """Turn a page title into a safe file stem, or raise ValueError.
+
+    Titles are chosen by an LLM that reads untrusted text, and they also arrive
+    as URL paths, so path separators are flattened (both kinds, so a title is
+    safe on Windows too) and anything that cannot be a plain file name inside
+    WIKI_DIR is refused.
+    """
+    name = title.replace("/", "_").replace("\\", "_").replace("\x00", "")
+    if not name.strip() or name in {".", ".."} or len(name) > _MAX_TITLE_LEN:
+        raise ValueError(f"Invalid page title: {title!r}")
+    return name
+
+
+def _is_reserved(title: str) -> bool:
+    # lower(): index.md and Index.md are the same file on a case-insensitive filesystem.
+    try:
+        return _name(title).lower() in _RESERVED
+    except ValueError:
+        return False
+
+
 def _path(title: str) -> Path:
-    return WIKI_DIR / f"{title.replace('/', '_')}.md"
+    return WIKI_DIR / f"{_name(title)}.md"
 
 
 def read_page(title: str) -> str:
-    p = _path(title)
+    try:
+        p = _path(title)
+    except ValueError as e:
+        return str(e)
     if not p.exists():
         return f"Page '{title}' does not exist."
     return p.read_text()
 
 
 def write_page(title: str, content: str) -> str:
-    _path(title).write_text(content)
+    try:
+        p = _path(title)
+    except ValueError as e:
+        return str(e)
+    if _is_reserved(title):
+        return f"Page '{title}' is system-managed and cannot be written."
+    p.write_text(content)
     return f"Page '{title}' written ({len(content)} chars)."
 
 
 def append_page(title: str, content: str) -> str:
-    p = _path(title)
+    try:
+        p = _path(title)
+    except ValueError as e:
+        return str(e)
+    if _is_reserved(title):
+        return f"Page '{title}' is system-managed and cannot be written."
     if not p.exists():
         return f"Page '{title}' does not exist. Use write_page to create it first."
     with open(p, "a") as f:
@@ -41,8 +78,11 @@ def append_page(title: str, content: str) -> str:
 
 
 def delete_page(title: str) -> str:
-    p = _path(title)
-    if title in _RESERVED:
+    try:
+        p = _path(title)
+    except ValueError as e:
+        return str(e)
+    if _is_reserved(title):
         return f"Page '{title}' is system-managed and cannot be deleted."
     if not p.exists():
         return f"Page '{title}' does not exist."

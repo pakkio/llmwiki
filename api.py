@@ -15,10 +15,21 @@ from wiki import WIKI_DIR, RAW_DIR, _RESERVED, _path, list_pages, read_page, reb
 from ingest import ingest
 from query import query
 from lint import lint
+from urlfetch import fetch_public_text
 
 _AUTH_USER = os.environ.get("AUTH_USERNAME", "pakkio")
 _AUTH_PASS = os.environ.get("AUTH_PASSWORD", "")
+if not _AUTH_PASS:
+    # Fail closed: with an empty password anyone who can reach the port could log in.
+    raise RuntimeError(
+        "AUTH_PASSWORD is not set: refusing to start without a login password "
+        "(set it in .env, see README)."
+    )
 _sessions: set[str] = set()
+
+
+def _same(a: str, b: str) -> bool:
+    return secrets.compare_digest(a.encode(), b.encode())
 
 app = FastAPI(title="llmwiki")
 ROOT_DIR = Path(__file__).parent
@@ -55,7 +66,8 @@ def api_health():
 
 @app.post("/api/login")
 def api_login(req: LoginRequest):
-    if req.username == _AUTH_USER and req.password == _AUTH_PASS:
+    # `&`, not `and`: always run both comparisons so timing does not reveal which one failed.
+    if _same(req.username, _AUTH_USER) & _same(req.password, _AUTH_PASS):
         token = secrets.token_hex(32)
         _sessions.add(token)
         return {"token": token}
@@ -101,7 +113,10 @@ def api_readme():
 
 @app.get("/api/pages/{title:path}")
 def api_get_page(title: str):
-    p = _path(title)
+    try:
+        p = _path(title)
+    except ValueError:
+        raise HTTPException(status_code=404, detail=f"Page '{title}' not found")
     if not p.exists():
         raise HTTPException(status_code=404, detail=f"Page '{title}' not found")
     return {"title": title, "content": p.read_text()}
@@ -221,10 +236,7 @@ def api_ingest(req: IngestRequest):
         def run():
             try:
                 if req.url:
-                    import httpx
-                    r = httpx.get(req.url, follow_redirects=True, timeout=30)
-                    r.raise_for_status()
-                    text = r.text
+                    text = fetch_public_text(req.url)
                     source = req.url
                 else:
                     text = req.text
@@ -341,4 +353,12 @@ if DIST.exists():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api:app", host="0.0.0.0", port=8080, reload=False)
+    # Local by default: the server speaks plain HTTP, so credentials and the session
+    # token would travel in clear on a network. To expose it, set LLMWIKI_HOST
+    # (e.g. 0.0.0.0) and put a TLS-terminating proxy in front.
+    uvicorn.run(
+        "api:app",
+        host=os.environ.get("LLMWIKI_HOST", "127.0.0.1"),
+        port=int(os.environ.get("LLMWIKI_PORT", "8080")),
+        reload=False,
+    )

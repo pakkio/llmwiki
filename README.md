@@ -26,7 +26,7 @@ cd frontend && npm install && npm run build && cd ..
 
 # 3. Start server
 .venv/bin/python api.py
-# → http://0.0.0.0:8080
+# → http://127.0.0.1:8080 (local only; see "Security" below to expose it)
 ```
 
 ## Directory layout
@@ -58,7 +58,9 @@ frontend/← React 19 + Vite + Tailwind SPA
 |---|---|
 | `DEEPSEEK_API_KEY` | DeepSeek API key |
 | `AUTH_USERNAME` | Web UI login username |
-| `AUTH_PASSWORD` | Web UI login password |
+| `AUTH_PASSWORD` | Web UI login password. **Required**: the server refuses to start without it |
+| `LLMWIKI_HOST` | Address to bind (default `127.0.0.1`) |
+| `LLMWIKI_PORT` | Port to bind (default `8080`) |
 
 ## Architecture
 
@@ -74,3 +76,12 @@ frontend/src/          ← React SPA (Index, Page, Query, Ingest, Lint, Log, Sta
 - **Query agent** is read-only on `wiki/`; cache reads/writes are handled at the application level
 - Both agents never see `cache/`, `raw/`, `index.md`, or `log.md`
 - Token usage and cost are tracked per operation and written to `wiki/log.md`
+
+## Security
+
+- The server listens on `127.0.0.1` only. It speaks plain HTTP, so the password and the session token are readable by anyone on the network path. To reach it from other machines set `LLMWIKI_HOST=0.0.0.0` **and** put a TLS-terminating reverse proxy in front.
+- `AUTH_PASSWORD` must be set; an empty password is no longer accepted.
+- URL ingestion (`/api/ingest` with `url`) only fetches public `http(s)` addresses: loopback, private, link-local (cloud metadata), CGNAT/Tailscale and reserved ranges are refused, redirects are re-checked at every hop and the body is capped at 5 MB. There is no switch to ingest from an internal address: save the page to a file and ingest the file. Known limit: DNS rebinding between the check and the connection is not covered.
+- The LLM cannot write or delete the system pages `index` and `log`, and page titles are flattened so they cannot leave `wiki/`.
+
+Tests: `python -m unittest discover -s tests` (no network, no LLM calls).
