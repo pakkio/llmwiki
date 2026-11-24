@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **API server (production):**
 ```bash
-nohup .venv/bin/python api.py > server.log 2>&1 &   # port 8080
+nohup .venv/bin/python api.py > server.log 2>&1 &   # 127.0.0.1:8080 (LLMWIKI_HOST / LLMWIKI_PORT to change)
 ```
 
 **Frontend dev mode** (backend must already be running on 8080):
@@ -46,7 +46,7 @@ npx tsc --noEmit
 ```
 DEEPSEEK_API_KEY=<key>
 AUTH_USERNAME=pakkio
-AUTH_PASSWORD=<password>
+AUTH_PASSWORD=<password>   # required: api.py refuses to start if empty
 ```
 
 Loaded by `python-dotenv` in `llm.py`. The OpenAI client points at `https://api.deepseek.com`.
